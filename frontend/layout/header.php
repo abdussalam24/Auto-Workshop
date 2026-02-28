@@ -1,6 +1,4 @@
-<?php
-include dirname(__DIR__, 2) . '/backend/config/db.php';
-?>    
+
 <!DOCTYPE html>
 <html lang="en">
 

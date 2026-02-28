@@ -105,74 +105,26 @@
     });
 </script>
 
-<?php
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php';
-
-if (isset($_POST['enquiry'])) {
-    $name = $_POST['nam'];
-    $phone = $_POST['phone'];
-    $brand = $_POST['brand'];
-    $email = $_POST['mail'];
-    $desc = $_POST['desc'];
-
-    if (isset($_FILES['file']) && $_FILES['file']['error'] == 0) {
-        $file_tmp = $_FILES['file']['tmp_name'];
-        $file_name = basename($_FILES['file']['name']);
-        $upload_dir = "uploads/";
-        $file_path = $upload_dir . $file_name;
-
-        if (move_uploaded_file($file_tmp, $file_path)) {
-            $file_uploaded = true;
-        } else {
-            $file_uploaded = false;
-            echo "File upload failed.";
-        }
-    }
-
-    $sql = "INSERT INTO enquiries (name, phone, brand, email, description, file_path) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssssss", $name, $phone, $brand, $email, $desc, $file_path);
-
-    if ($stmt->execute()) {
-        $mail = new PHPMailer(true);
-        try {
-            $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com';
-            $mail->SMTPAuth = true;
-            $mail->Username = 'asalamsalim94@gmail.com';
-            $mail->Password = 'jzmo yyna tgxj mfqk';
-            $mail->SMTPSecure = 'tls';
-            $mail->Port = 587;
-
-            $mail->setFrom('Developer@autoworkshop.com', 'Enquiry');
-            $mail->addAddress($email, $name);
-            $mail->addBCC('sp23bscs0213@maju.edu.pk');
-            $mail->addReplyTo('muhammadabdussalam593@gmail.com', 'Enquiry Reply');
-
-            if ($file_uploaded) {
-                $mail->addAttachment($file_path);
+    // Handle Enquiry Form Submission
+    const enquiryForm = document.querySelector('.enquiry-section form');
+    if (enquiryForm) {
+        enquiryForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(enquiryForm);
+            try {
+                const response = await fetch('../backend/api/enquiry.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+                alert(result.message);
+                if (result.success) {
+                    enquiryForm.reset();
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while submitting the enquiry.');
             }
-
-            $mail->isHTML(true);
-            $mail->Subject = 'Enquiry Received';
-            $mail->Body    = "Dear $name,<br>Your enquiry has been received.<br><br>Details:<br>Phone: $phone<br>Brand: $brand<br>Description: $desc";
-            $mail->AltBody = "Dear $name,\nYour enquiry has been received.\n\nDetails:\nPhone: $phone\nBrand: $brand\nDescription: $desc";
-
-            $mail->send();
-            echo 'Message has been sent';
-        } catch (Exception $e) {
-            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-        }
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        });
     }
-
-    $stmt->close();
-}
-
-$conn->close();
-?>
+</script>
