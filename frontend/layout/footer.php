@@ -150,7 +150,7 @@ document.getElementById('mechanic').addEventListener('click', function() {
                 e.preventDefault();
                 const formData = new FormData(enquiryForm);
                 try {
-                    const response = await fetch('backend/api/enquiry.php', {
+                    const response = await fetch('../backend/api/enquiry.php', {
                         method: 'POST',
                         body: formData
                     });
