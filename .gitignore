@@ -1,0 +1,14 @@
+# Backend dependencies
+backend/vendor/
+backend/composer.phar
+
+# Uploads
+uploads/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+Thumbs.db
+.DS_Store
