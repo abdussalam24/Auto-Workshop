@@ -1,543 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'layout/header.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Workshop</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            background-color: white;
-        }
-
-        .top-bar {
-            background-color: black;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-        }
-
-        .top-bar a  {
-            text-decoration: none;
-            color: #0073e6;
-            font-size: 14px;
-        }
-
-        .contact-info {
-            font-size: 14px;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            background-color: black;
-            color: #f8f9fa;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar .logo h1 {
-            margin: 0;
-            font-size: 30px;
-            color: white;
-        }
-
-        .navbar .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .navbar .nav-links li {
-            display: inline;
-        }
-
-        .navbar .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-            padding: 10px;
-        }
-
-        .navbar .nav-links a:hover {
-            border-bottom: 2px solid #0073e6;
-            color: #0073e6;
-        }
-
-        .main-banner {
-            background: url('/assets/images/pexels-cottonbro-4489761.jpg') no-repeat center center/cover;
-            height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            color: #fff;
-            text-align: center;
-        }
-
-        .main-banner .overlay {
-            background-color: rgba(0, 0, 0, 0.5);
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .main-banner h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #f0f0f0;
-        }
-
-        .main-banner span {
-            color: #66ccff;
-        }
-
-        .main-banner p {
-            color: #f0f0f0;
-        }
-
-        .about {
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .about h3 {
-            font-size: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .about p {
-            margin: 1rem 0;
-            line-height: 1.6;
-        }
-
-        
-        .card {
-            display: flex;
-            flex-direction: column;
-            width: 25%;
-            margin: 5% 3% 1% 1%;
-            transition: transform 0.2s;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            text-align: center;
-            font-size: x-large;
-        }
-
-        .card-title {
-            text-align: center;
-            font-size: 1.8rem;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-        }
-
-        .card img {
-            max-height: 200px;
-            object-fit: cover;
-        }
-
-
-        .contact {
-            display: flex;
-            justify-content: space-around;
-            padding: 2rem;
-            background: #f0f0f0;
-            flex-wrap: wrap;
-        }
-
-        .contact-info,
-        .working-time {
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .contact-info h3,
-        .working-time h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-info p,
-        .working-time p {
-            font-size: 1rem;
-            margin: 0.5rem 0;
-        }
-
-        .timeline {
-            display: flex;
-            justify-content: space-around;
-            padding: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .timeline-item {
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .timeline-item p {
-            margin: 0.5rem 0;
-            font-size: 1rem;
-        }
-
-        .footer-container {
-            background-color: #222;
-            color: #f8f9fa;
-            padding: 50px 20px;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .footer-top {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .footer-item {
-            flex: 1;
-            margin: 0 15px;
-        }
-
-        .footer-item i {
-            font-size: 40px;
-            margin-bottom: 10px;
-            color: #0073e6;
-        }
-
-        .footer-item h3 {
-            margin: 10px 0 5px 0;
-            font-size: 22px;
-            color: #f8f9fa;
-        }
-
-        .footer-item p {
-            font-size: 18px;
-            margin: 5px 0;
-        }
-
-        .footer-middle {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .about1,
-        .services,
-        .address {
-            flex: 1;
-            margin: 0 20px;
-            max-width: 300px;
-        }
-
-        .about1 p,
-        .address p {
-            margin: 10px 0;
-            line-height: 1.5;
-            color: #f8f9fa;
-        }
-
-        .services ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .services li {
-            margin: 5px 0;
-        }
-
-        .services a,
-        .address a,
-        .footer-item a {
-            text-decoration: none;
-            color: #0073e6;
-            transition: color 0.3s;
-        }
-
-        .services a:hover,
-        .address a:hover,
-        .footer-item a:hover {
-            color: #005bb5;
-        }
-
-        .footer-bottom {
-            background-color: #111;
-            color: #bbb;
-            padding: 20px 0;
-            text-align: center;
-            border-top: 1px solid #444;
-        }
-
-        .footer-bottom p {
-            margin: 0;
-            font-size: 16px;
-        }
-
-        .footer-bottom a {
-            color: #0073e6;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-bottom a:hover {
-            color: #005bb5;
-        }
-
-        .social-icons {
-            margin-top: 10px;
-        }
-
-        .social-icons a {
-            color: #bbb;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 24px;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: #f8f9fa;
-        }
-
-        @media (max-width: 768px) {
-            .main-banner h1 {
-                font-size: 2rem;
-            }
-
-            .about {
-                padding: 1rem;
-            }
-
-            .contact {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            .timeline {
-                flex-direction: column;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <header class="header">
-        <div class="top-bar">
-            <a href="#" id="appointment">Get free appointment with the mechanic →</a>
-            <div class="contact-info">
-                <span>Call us now: <a href="tel:02134919955">(021) 3491 9955</a></span> |
-                <a href="#" class="map">Find us on map →</a>
-            </div>
-        </div>
-        <nav class="navbar">
-            <div class="logo">
-                <h1>Auto Workshop</h1>
-            </div>
-            <ul class="nav-links">
-            <li><a href="#" id="home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#" id="Offer">Offers</a></li>
-            <li><a href="#" id="appointment">Appointment</a></li>
-            <li><a href="#" id="about">About</a></li>
-            <li><a href="#" id="contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="main-banner">
-        <div class="overlay">
-            <div class="header-content">
-                <h1>Rev Up Your <span>Passion</span>: Drive with Love, Drive with Us!</h1>
-                <p>Auto Workshop</p>
-            </div>
-        </div>
+<div class="team-hero relative h-[50vh] flex items-center justify-center overflow-hidden" style="background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('/frontend/assets/images/hero_premium.png') no-repeat center center/cover;">
+    <div class="text-center z-10 px-4">
+        <h1 class="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight uppercase">Meet Our <span class="text-blue-500">Experts</span></h1>
+        <p class="text-xl text-blue-200 font-medium max-w-2xl mx-auto">The skilled hands and technical minds keeping Karachi on the move since 1980.</p>
     </div>
-    <main>
-        <section class="about">
-            <h2>About Auto Workshop Employees</h2>
-            <div class="flex flex-wrap justify-center gap-6">
-                <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                    <figure><img src="/assets/images/WhatsApp Image 2024-06-05 at 1.40.28 PM.jpeg" alt="Car Wash" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">M.Abdussalam</h2>
-                        <p>Backend </p>
-                        <div class="card-actions justify-end">
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                    <figure><img src="/assets/images/IMG-20231125-WA0073-Photoroom.png" alt="Oil Change" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Irtiza Ahmed</h2>
-                        <p>Frontend</p>
-                        <div class="card-actions justify-end">
-                        </div>
-                    </div>
-                </div>
-                <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                    <figure><img src="/assets/images/WhatsApp Image 2024-06-05 at 1.33.58 PM.jpeg" alt="Engine" /></figure>
-                    <div class="card-body">
-                        <h2 class="card-title">Amman Ullah Azhar</h2>
-                        <p>Frontend</p>
-                        <div class="card-actions justify-end">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="contact">
-            <div class="contact-info">
-                <h3>Call Now</h3>
-                <p>(021) 34919955</p>
-                <p>Mobile: 0324 2636583</p>
-            </div>
-            <div class="working-time">
-                <h3>Working time</h3>
-                <p>WEEK DAYS: 10:00 – 19:00</p>
-                <p>SUNDAY: CLOSED</p>
-            </div>
-        </section>
-        
-        <section class="timeline">
-            <div class="timeline-item">
-                <p>1980</p>
-                <p>Start with basic service</p>
-            </div>
-            <div class="timeline-item">
-                <p>2005</p>
-                <p>Get two shops in Gulshan</p>
-            </div>
-            <div class="timeline-item">
-                <p>2018</p>
-                <p>Workshop go online</p>
-            </div>
-        </section>
-        <footer>
-            <div class="footer-container">
-                <div class="footer-top">
-                    <div class="footer-item">
-                        <i class="fa fa-envelope"></i>
-                        <h3>Get Free</h3>
-                        <p>APPOINTMENT</p>
-                    </div>
-                    <div class="footer-item">
-                        <i class="fa fa-phone"></i>
-                        <h3>Call Now</h3>
-                        <p>0318 0206408</p>
-                    </div>
-                    <div class="footer-item">
-                        <i class="fa fa-tag"></i>
-                        <h3>View Our</h3>
-                        <p>TOP OFFERS</p>
-                    </div>
-                </div>
-                <div class="footer-middle">
-                    <div class="about1">
-                        <h3>About</h3>
-                        <p>Auto Workshop is a general automobile repair workshop with an excellent reputation for
-                            providing best quality services. We are based in Karachi, Pakistan...</p>
-                        <a href="#" id="read">Read more...</a>
-                    </div>
-                    <div class="services">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#" id="car">Car Wash</a></li>
-                            <li><a href="#" id="oil">Oil change</a></li>
-                            <li><a href="#" id="engine">Engine Service</a></li>
-                            <li><a href="#" id="mechani">Mechanical Service</a></li>
-                        </ul>
-                    </div>
-                    <div class="address">
-                        <h3>Address</h3>
-                        <p>MAJU Road, Main Shahrah-e-Faisal, 22-E, Block 6 P.E.C.H.S., Karachi, Karachi City, Sindh 75400, Pakistan</p>
-                <p>Tel: (021) 34575947<br>Cell: 0318 0206408</p>
-                        <a href="#" id="map1">Get directions on the map</a>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <p>© 2021 Auto Workshop by <a href="#">CreativeWave</a></p>
-                    <!-- <div class="social-icons">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-search"></i></a>
-                </div> -->
-                </div>
-            </div>
-        </footer>
-    </main>
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const links = document.querySelectorAll('.nav-links a[href^="#"]');
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0f172a] to-transparent"></div>
+</div>
 
-    document.getElementById('home').addEventListener('click', function() {
-    window.location.href = 'index.php';  // Navigate to the About page
-});    
-document.getElementById('Offer').addEventListener('click', function() {
-    window.location.href = 'offers.php';  // Navigate to the About page
-});
+<main class="bg-[#0f172a] py-24 px-6">
+    <section class="container mx-auto max-w-6xl">
+        <div class="text-center mb-20">
+            <span class="text-blue-500 font-black uppercase tracking-widest text-sm mb-4 block">Our Passion</span>
+            <h2 class="text-4xl md:text-5xl font-extrabold text-white tracking-tight">Precision in Every Turn</h2>
+            <div class="w-20 h-1.5 bg-blue-600 mx-auto mt-6 rounded-full"></div>
+        </div>
 
-document.getElementById('about').addEventListener('click', function() {
-    window.location.href = 'about.php';  // Navigate to the About page
-});
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <!-- Team Member 1 -->
+            <div class="group relative bg-[#1e293b]/40 backdrop-blur-xl border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+                <div class="h-80 overflow-hidden relative">
+                    <img src="/frontend/assets/images/WhatsApp Image 2024-06-05 at 1.40.28 PM.jpeg" alt="M.Abdussalam" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b] via-transparent to-transparent opacity-60"></div>
+                </div>
+                <div class="p-8 text-center relative">
+                    <h3 class="text-2xl font-black text-white mb-1">M. Abdussalam</h3>
+                    <p class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-4">Core Systems Architect</p>
+                    <p class="text-slate-400 text-sm italic italic leading-relaxed">Expert in backend diagnostics and precision engine management systems.</p>
+                </div>
+            </div>
 
-document.getElementById('appointment').addEventListener('click', function() {
-    window.location.href = 'appointment.php';  // Navigate to the About page
-});
-document.getElementById('contact').addEventListener('click', function() {
-    window.location.href = 'contact.php';  // Navigate to the About page
-});
-document.getElementById('map').addEventListener('click', function() {
-    window.location.href = 'contact.php';  // Navigate to the About page
-});
-document.getElementById('map1').addEventListener('click', function() {
-    window.location.href = 'contact.php';  // Navigate to the About page
-});
-document.getElementById('app').addEventListener('click', function() {
-    window.location.href = 'appointment.php';  // Navigate to the About page
-});
-document.getElementById('read').addEventListener('click', function() {
-            window.location.href = 'about.php';  
-});
-document.getElementById('car').addEventListener('click', function() {
-    window.location.href = 'Car_wash.php';  // Navigate to the About page
-});
-document.getElementById('oil').addEventListener('click', function() {
-    window.location.href = 'Oil_change.php';  // Navigate to the About page
-});
-document.getElementById('engine').addEventListener('click', function() {
-    window.location.href = 'Engine_service.php';  // Navigate to the About page
-});
-document.getElementById('mechanic').addEventListener('click', function() {
-    window.location.href = 'Mechanical_service.php';  // Navigate to the About page
-});
-    
-});
-    </script>
-</body>
+            <!-- Team Member 2 -->
+            <div class="group relative bg-[#1e293b]/40 backdrop-blur-xl border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+                <div class="h-80 overflow-hidden relative">
+                    <img src="/frontend/assets/images/IMG-20231125-WA0073-Photoroom.png" alt="Irtiza Ahmed" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b] via-transparent to-transparent opacity-60"></div>
+                </div>
+                <div class="p-8 text-center relative">
+                    <h3 class="text-2xl font-black text-white mb-1">Irtiza Ahmed</h3>
+                    <p class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-4">Performance Specialist</p>
+                    <p class="text-slate-400 text-sm italic italic leading-relaxed">Dedicated to optimizing vehicle interfaces and performance tuning.</p>
+                </div>
+            </div>
 
-</html>
+            <!-- Team Member 3 -->
+            <div class="group relative bg-[#1e293b]/40 backdrop-blur-xl border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-blue-500/30 transition-all duration-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.1)]">
+                <div class="h-80 overflow-hidden relative">
+                    <img src="/frontend/assets/images/WhatsApp Image 2024-06-05 at 1.33.58 PM.jpeg" alt="Amman Ullah Azhar" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b] via-transparent to-transparent opacity-60"></div>
+                </div>
+                <div class="p-8 text-center relative">
+                    <h3 class="text-2xl font-black text-white mb-1">Amman Ullah Azhar</h3>
+                    <p class="text-blue-500 font-bold uppercase tracking-widest text-xs mb-4">Diagnostic Expert</p>
+                    <p class="text-slate-400 text-sm italic italic leading-relaxed">Specializes in modern vehicle telemetry and advanced frontend diagnostics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-32 py-16 bg-[#1e293b]/50 border-t border-b border-white/5">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <h3 class="text-3xl font-black text-white mb-4">Ready to serve you</h3>
+                <p class="text-slate-400 max-w-md">Our team is available 6 days a week for all your maintenance needs in Karachi.</p>
+            </div>
+            <div class="flex flex-col sm:flex-row justify-center md:justify-end gap-8">
+                <div class="text-center">
+                    <span class="block text-blue-500 font-black text-2xl mb-1">(021) 34919955</span>
+                    <span class="text-xs uppercase font-bold text-slate-500 tracking-widest">Office Line</span>
+                </div>
+                <div class="text-center">
+                    <span class="block text-white font-black text-2xl mb-1">10:00 – 19:00</span>
+                    <span class="text-xs uppercase font-bold text-slate-500 tracking-widest">Working Hours</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+<?php include 'layout/footer.php'; ?>
