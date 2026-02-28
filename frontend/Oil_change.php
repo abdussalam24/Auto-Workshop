@@ -301,7 +301,7 @@
                     </p>
                 </div>
                 <div class="image-content">
-                    <img src="pexels-daniel-andraski-197681005-13065690.jpg" alt="Oil Change">
+                    <img src="/assets/images/pexels-daniel-andraski-197681005-13065690.jpg" alt="Oil Change">
                 </div>
             </section>
             <section class="service-info">

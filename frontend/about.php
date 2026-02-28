@@ -79,7 +79,7 @@ body {
 
 /* Main Banner Styles */
 .main-banner {
-    background: url('pexels-artempodrez-8985603.jpg') no-repeat center center/cover;
+    background: url('/assets/images/pexels-artempodrez-8985603.jpg') no-repeat center center/cover;
     height: 70vh;
     display: flex;
     align-items: center;

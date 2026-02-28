@@ -10,25 +10,25 @@ include 'layout/header.php'
         </div>
         <div class="carousel rounded-box">
             <div class="carousel-item w-full">
-                <img src="assets/images/pexels-shvetsa-4315572.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+                <img src="/assets/images/pexels-shvetsa-4315572.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
             </div>
             <div class="carousel-item w-full">
-                <img src="assets/images/pexels-artempodrez-8986047.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+                <img src="/assets/images/pexels-artempodrez-8986047.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
             </div>
             <div class="carousel-item w-full">
-                <img src="assets/images/pexels-cottonbro-4489707.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+                <img src="/assets/images/pexels-cottonbro-4489707.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
             </div>
             <div class="carousel-item w-full">
-                <img src="assets/images/pexels-shvetsa-4315571.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+                <img src="/assets/images/pexels-shvetsa-4315571.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
             </div>
             <div class="carousel-item w-full">
-                <img src="assets/images/pexels-artempodrez-8985915.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+                <img src="/assets/images/pexels-artempodrez-8985915.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
             </div>
             <div class="carousel-item w-full">
-                <img src="assets/images/pexels-cottonbro-4488646.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+                <img src="/assets/images/pexels-cottonbro-4488646.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
             </div>
             <div class="carousel-item w-full">
-                <img src="assets/images/pexels-cottonbro-4489737.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
+                <img src="/assets/images/pexels-cottonbro-4489737.jpg" class="w-full" alt="Tailwind CSS Carousel component" />
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@ include 'layout/header.php'
 </div>
 
     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="assets/images/pexels-sleepididthis-1740919.jpg" alt="Car Wash" /></figure>
+        <figure><img src="/assets/images/pexels-sleepididthis-1740919.jpg" alt="Car Wash" /></figure>
         <div class="card-body">
             <h2 class="card-title">Car Wash</h2>
             <p>Book your slot for a Car Wash </p>
@@ -51,7 +51,7 @@ include 'layout/header.php'
     </div>
 
     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="assets/images/pexels-daniel-andraski-197681005-13065690.jpg" alt="Oil Change" /></figure>
+        <figure><img src="/assets/images/pexels-daniel-andraski-197681005-13065690.jpg" alt="Oil Change" /></figure>
         <div class="card-body">
             <h2 class="card-title">Oil Change</h2>
             <p>Book your slot for an Oil Change</p>
@@ -62,7 +62,7 @@ include 'layout/header.php'
     </div>
 
     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="assets/images/pexels-shvetsa-4315575.jpg" alt="Engine" /></figure>
+        <figure><img src="/assets/images/pexels-shvetsa-4315575.jpg" alt="Engine" /></figure>
         <div class="card-body">
             <h2 class="card-title">Engine Service</h2>
             <p>Book your slot for Engine Service</p>
@@ -73,7 +73,7 @@ include 'layout/header.php'
     </div>
 
     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="assets/images/pexels-olly-3806249.jpg" alt="Tire Change" /></figure>
+        <figure><img src="/assets/images/pexels-olly-3806249.jpg" alt="Tire Change" /></figure>
         <div class="card-body">
             <h2 class="card-title">Tire Change</h2>
             <p>Book your slot for Tire Change</p>
@@ -84,7 +84,7 @@ include 'layout/header.php'
     </div>
 
     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="assets/images/pexels-pixabay-162553.jpg" alt="Inventory" /></figure>
+        <figure><img src="/assets/images/pexels-pixabay-162553.jpg" alt="Inventory" /></figure>
         <div class="card-body">
             <h2 class="card-title">Mechanical Services</h2>
             <p>Find a perfect product</p>
@@ -95,7 +95,7 @@ include 'layout/header.php'
     </div>
 
     <div class="card card-compact w-96 bg-base-100 shadow-xl">
-        <figure><img src="assets/images/pexels-pixabay-163064.jpg" alt="Employees" /></figure>
+        <figure><img src="/assets/images/pexels-pixabay-163064.jpg" alt="Employees" /></figure>
         <div class="card-body">
             <h2 class="card-title">Employees</h2>
             <p>Meet Our Team</p>
@@ -137,7 +137,7 @@ include 'layout/header.php'
         </form>
     </div>
     <div class="image-container">
-        <img src="assets/images/person-fotor-bg-remover-20240525142154.png" alt="Mechanic">
+        <img src="/assets/images/person-fotor-bg-remover-20240525142154.png" alt="Mechanic">
     </div>
 </section>
   

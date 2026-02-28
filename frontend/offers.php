@@ -121,7 +121,7 @@ include 'layout/header1.php'
         </form>
     </div>
     <div class="image-container">
-        <img src="person-fotor-bg-remover-20240525142154.png" alt="Mechanic">
+        <img src="/assets/images/person-fotor-bg-remover-20240525142154.png" alt="Mechanic">
     </div>
 </section>
 <?php

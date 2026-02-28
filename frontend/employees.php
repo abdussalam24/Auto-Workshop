@@ -77,7 +77,7 @@
         }
 
         .main-banner {
-            background: url('pexels-cottonbro-4489761.jpg') no-repeat center center/cover;
+            background: url('/assets/images/pexels-cottonbro-4489761.jpg') no-repeat center center/cover;
             height: 70vh;
             display: flex;
             align-items: center;
@@ -381,7 +381,7 @@
             <h2>About Auto Workshop Employees</h2>
             <div class="flex flex-wrap justify-center gap-6">
                 <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                    <figure><img src="WhatsApp Image 2024-06-05 at 1.40.28 PM.jpeg" alt="Car Wash" /></figure>
+                    <figure><img src="/assets/images/WhatsApp Image 2024-06-05 at 1.40.28 PM.jpeg" alt="Car Wash" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">M.Abdussalam</h2>
                         <p>Backend </p>
@@ -390,7 +390,7 @@
                     </div>
                 </div>
                 <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                    <figure><img src="IMG-20231125-WA0073-Photoroom.png" alt="Oil Change" /></figure>
+                    <figure><img src="/assets/images/IMG-20231125-WA0073-Photoroom.png" alt="Oil Change" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Irtiza Ahmed</h2>
                         <p>Frontend</p>
@@ -399,7 +399,7 @@
                     </div>
                 </div>
                 <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                    <figure><img src="WhatsApp Image 2024-06-05 at 1.33.58 PM.jpeg" alt="Engine" /></figure>
+                    <figure><img src="/assets/images/WhatsApp Image 2024-06-05 at 1.33.58 PM.jpeg" alt="Engine" /></figure>
                     <div class="card-body">
                         <h2 class="card-title">Amman Ullah Azhar</h2>
                         <p>Frontend</p>

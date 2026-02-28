@@ -300,7 +300,7 @@
                     </p>
                 </div>
                 <div class="image-content">
-                    <img src="pexels-olly-3806249.jpg" alt="Tire Change">
+                    <img src="/assets/images/pexels-olly-3806249.jpg" alt="Tire Change">
                 </div>
             </section>
             <section class="service-info">

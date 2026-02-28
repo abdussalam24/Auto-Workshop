@@ -300,7 +300,7 @@
                         Maintaining the health of your vehicle's engine is crucial for its performance and longevity. Our comprehensive Engine Service is designed to ensure your engine runs smoothly, efficiently, and reliably. </p>
                 </div>
                 <div class="image-content">
-                    <img src="pexels-mikebirdy-190574.jpg" alt="Oil Change">
+                    <img src="/assets/images/pexels-mikebirdy-190574.jpg" alt="Oil Change">
                 </div>
             </section>
             <section class="service-info">

@@ -304,7 +304,7 @@
                     </p>
                 </div>
                 <div class="image-content">
-                    <img src="pexels-koprivakart-3354648.jpg" alt="Oil Change">
+                    <img src="/assets/images/pexels-koprivakart-3354648.jpg" alt="Oil Change">
                 </div>
             </section>
             <section class="service-info">
