@@ -15,16 +15,20 @@
     ],
     "routes": [
         {
-            "src": "/backend/api/(.*)",
-            "dest": "/backend/api/$1"
+            "src": "/backend/(.*)",
+            "dest": "/backend/$1"
         },
         {
-            "src": "/frontend/assets/(.*)",
-            "dest": "/frontend/assets/$1"
+            "src": "/frontend/(.*)",
+            "dest": "/frontend/$1"
+        },
+        {
+            "src": "/",
+            "dest": "/frontend/index.php"
         },
         {
             "src": "/(.*)",
-            "dest": "/index.php"
+            "dest": "/frontend/$1"
         }
     ]
 }
