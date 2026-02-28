@@ -1,15 +1,18 @@
 {
-    "functions": {
-        "frontend/**/*.php": {
-            "runtime": "vercel-php@0.7.2"
+    "builds": [
+        {
+            "src": "frontend/**/*.php",
+            "use": "vercel-php@0.7.2"
         },
-        "backend/api/**/*.php": {
-            "runtime": "vercel-php@0.7.2"
+        {
+            "src": "backend/api/**/*.php",
+            "use": "vercel-php@0.7.2"
         },
-        "index.php": {
-            "runtime": "vercel-php@0.7.2"
+        {
+            "src": "index.php",
+            "use": "vercel-php@0.7.2"
         }
-    },
+    ],
     "routes": [
         {
             "src": "/backend/api/(.*)",
